@@ -7,8 +7,8 @@ This repo contains many free-to-use fonts which are ready-to-use in your GBA pro
 
 ## Fonts & Licenses
 
-This branch `galmuri` features [Galmuri Korean fonts](https://galmuri.quiple.dev/) for [Butano](https://github.com/GValiente/butano).\
-본 `galmuri` 브랜치는 [Butano](https://github.com/GValiente/butano) 엔진용 [갈무리체](https://galmuri.quiple.dev/)를 포함하고 있습니다.
+This fork `gba-kor-fonts` features [Galmuri Korean fonts](https://galmuri.quiple.dev/) for [Butano](https://github.com/GValiente/butano).\
+본 `gba-kor-fonts` 포크는 [Butano](https://github.com/GValiente/butano) 엔진용 [갈무리체](https://galmuri.quiple.dev/)를 포함하고 있습니다.
 
 |Font|License|Characters|Preview|
 |---|---|---|---|
