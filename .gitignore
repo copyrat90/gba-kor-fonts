@@ -3,3 +3,5 @@ build/
 *.gba
 *.elf
 *.sav
+.venv/
+.vscode/

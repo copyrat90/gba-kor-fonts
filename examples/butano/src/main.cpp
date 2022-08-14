@@ -11,32 +11,28 @@
 #include "bn_string_view.h"
 #include "bn_sprite_text_generator.h"
 
-#include "hanamin_sprite_font.h"
-#include "unifont_sprite_font.h"
-#include "unscii_sprite_font.h"
-#include "babelstone_han_sprite_font.h"
-#include "source_han_serif_jp_sprite_font.h"
-#include "source_han_sans_jp_sprite_font.h"
-#include "source_han_mono_jp_sprite_font.h"
-#include "wqy_zenhei_sprite_font.h"
-#include "wqy_microhei_sprite_font.h"
+#include "galmuri7_sprite_font.h"
+#include "galmuri9_sprite_font.h"
+#include "galmuri11_sprite_font.h"
+#include "galmuri11_bold_sprite_font.h"
+#include "galmuri11_condensed_sprite_font.h"
 
 namespace
 {
-    void hanamin_text_scene()
+    void galmuri7_text_scene()
     {
-        bn::sprite_text_generator text_generator(hanamin_sprite_font);
+        bn::sprite_text_generator text_generator(galmuri7_sprite_font);
         text_generator.set_center_alignment();
 
         bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- HanaMin / 花園明朝 / 花园宋体 -", text_sprites);
-        text_generator.generate(0, -48, "English Français русский язык", text_sprites);
-        text_generator.generate(0, -28, "简体中文 繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, -8, "繁體中文（香港）Монголхэл", text_sprites);
-        text_generator.generate(0, 12, "日本語（にほんご）𫝀𫠫𬺰𬺱", text_sprites);
-        text_generator.generate(0, 32, "Tiếng Việt ภาษาไทย", text_sprites);
-        text_generator.generate(0, 52, "Македонски Ўзбекча", text_sprites);
-        text_generator.generate(0, 72, "☺♨➑☆★♡✂♪♫☑", text_sprites);
+        text_generator.generate(0, -68, "다람쥐 헌 쳇바퀴에 타고파", text_sprites);
+        text_generator.generate(0, -48, "닭 콩팥 훔친 집사", text_sprites);
+        text_generator.generate(0, -28, "키스의 고유 조건은 입술끼리 만나야 하고", text_sprites);
+        text_generator.generate(0, -8, "특별한 기술은 필요치 않다.", text_sprites);
+        text_generator.generate(0, 12, "유쾌했던 땃쥐 토끼풀 쫓기 바쁨", text_sprites);
+        text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
+        text_generator.generate(0, 52, "키위를 주게 되었소 내가", text_sprites);
+        text_generator.generate(0, 72, "The quick brown fox jumps over a lazy dog", text_sprites);
 
         while(! bn::keypad::start_pressed())
         {
@@ -44,20 +40,20 @@ namespace
         }
     }
 
-    void unifont_text_scene()
+    void galmuri9_text_scene()
     {
-        bn::sprite_text_generator text_generator(unifont_sprite_font);
+        bn::sprite_text_generator text_generator(galmuri9_sprite_font);
         text_generator.set_center_alignment();
 
         bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- Unifont -", text_sprites);
-        text_generator.generate(0, -48, "English Français русский язык", text_sprites);
-        text_generator.generate(0, -28, "简体中文 繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, -8, "繁體中文（香港）Монголхэл", text_sprites);
-        text_generator.generate(0, 12, "日本語（にほんご）한국어 𣑋𠗖", text_sprites);
-        text_generator.generate(0, 32, "Tiếng Việt ภาษาไทย", text_sprites);
-        text_generator.generate(0, 52, "Македонски Ўзбекча", text_sprites);
-        text_generator.generate(0, 72, "☺♨➑☆★♡✂♪♫☑", text_sprites);
+        text_generator.generate(0, -68, "다람쥐 헌 쳇바퀴에 타고파", text_sprites);
+        text_generator.generate(0, -48, "닭 콩팥 훔친 집사", text_sprites);
+        text_generator.generate(0, -28, "키스의 고유 조건은 입술끼리 만나야 하고", text_sprites);
+        text_generator.generate(0, -8, "특별한 기술은 필요치 않다.", text_sprites);
+        text_generator.generate(0, 12, "유쾌했던 땃쥐 토끼풀 쫓기 바쁨", text_sprites);
+        text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
+        text_generator.generate(0, 52, "키위를 주게 되었소 내가", text_sprites);
+        text_generator.generate(0, 72, "The quick brown fox jumps over a lazy dog", text_sprites);
 
         while(! bn::keypad::start_pressed())
         {
@@ -65,20 +61,20 @@ namespace
         }
     }
 
-    void unscii_text_scene()
+    void galmuri11_text_scene()
     {
-        bn::sprite_text_generator text_generator(unscii_sprite_font);
+        bn::sprite_text_generator text_generator(galmuri11_sprite_font);
         text_generator.set_center_alignment();
 
         bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- Unscii -", text_sprites);
-        text_generator.generate(0, -48, "English Français русский язык", text_sprites);
-        text_generator.generate(0, -28, "简体中文 繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, -8, "繁體中文（香港）Монголхэл", text_sprites);
-        text_generator.generate(0, 12, "日本語（にほんご）한국어", text_sprites);
-        text_generator.generate(0, 32, "Tiếng Việt ภาษาไทย", text_sprites);
-        text_generator.generate(0, 52, "Македонски Ўзбекча", text_sprites);
-        text_generator.generate(0, 72, "☺♨➑☆★♡✂♪♫☑", text_sprites);
+        text_generator.generate(0, -68, "다람쥐 헌 쳇바퀴에 타고파", text_sprites);
+        text_generator.generate(0, -48, "닭 콩팥 훔친 집사", text_sprites);
+        text_generator.generate(0, -28, "키스의 고유 조건은 입술끼리 만나야 하고", text_sprites);
+        text_generator.generate(0, -8, "특별한 기술은 필요치 않다.", text_sprites);
+        text_generator.generate(0, 12, "유쾌했던 땃쥐 토끼풀 쫓기 바쁨", text_sprites);
+        text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
+        text_generator.generate(0, 52, "The quick brown fox", text_sprites);
+        text_generator.generate(0, 72, "jumps over a lazy dog", text_sprites);
 
         while(! bn::keypad::start_pressed())
         {
@@ -86,20 +82,20 @@ namespace
         }
     }
 
-    void babelstone_han_text_scene()
+    void galmuri11_bold_text_scene()
     {
-        bn::sprite_text_generator text_generator(babelstone_han_sprite_font);
+        bn::sprite_text_generator text_generator(galmuri11_bold_sprite_font);
         text_generator.set_center_alignment();
 
         bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- BabelStone Han -", text_sprites);
-        text_generator.generate(0, -48, "English 简体中文 繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, -28, "繁體中文（香港）日本語（にほんご）", text_sprites);
-        text_generator.generate(0, -8, "基本:义礼说选 扩A: 㡛㬐㖧䵍", text_sprites);
-        text_generator.generate(0, 12, "扩B:𣚣䶅𪘆𦞕 扩C:𪢨𪪖𫔺𫜴", text_sprites);
-        text_generator.generate(0, 32, "扩D:𫝀𫞂𫝻𫠝 扩E:𫠫𬚚𬳕𬺡", text_sprites);
-        text_generator.generate(0, 52, "扩F:𬺰𬺱𮯟𮯠 扩G:𰀀𰀁𰀂𰀃", text_sprites);
-        text_generator.generate(0, 72, "兼容:豈更車賈 增补:乁𠄢𠕋𠨬", text_sprites);
+        text_generator.generate(0, -68, "다람쥐 헌 쳇바퀴에 타고파", text_sprites);
+        text_generator.generate(0, -48, "닭 콩팥 훔친 집사", text_sprites);
+        text_generator.generate(0, -28, "키스의 고유 조건은 입술끼리 만나야 하고", text_sprites);
+        text_generator.generate(0, -8, "특별한 기술은 필요치 않다.", text_sprites);
+        text_generator.generate(0, 12, "유쾌했던 땃쥐 토끼풀 쫓기 바쁨", text_sprites);
+        text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
+        text_generator.generate(0, 52, "The quick brown fox", text_sprites);
+        text_generator.generate(0, 72, "jumps over a lazy dog", text_sprites);
 
         while(! bn::keypad::start_pressed())
         {
@@ -107,104 +103,20 @@ namespace
         }
     }
 
-    void source_han_serif_text_scene()
+    void galmuri11_condensed_text_scene()
     {
-        bn::sprite_text_generator text_generator(source_han_serif_jp_sprite_font);
+        bn::sprite_text_generator text_generator(galmuri11_condensed_sprite_font);
         text_generator.set_center_alignment();
 
         bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- Source Han Serif | 思源宋体 | 思源宋體 -", text_sprites);
-        text_generator.generate(0, -48, "- 思源宋體 香港 | 源ノ明朝 | 본명조 -", text_sprites);
-        text_generator.generate(0, -28, "SC 简体中文", text_sprites);
-        text_generator.generate(0, -8, "TC  繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, 12, "HC 繁體中文（香港）", text_sprites);
-        text_generator.generate(0, 32, "JP 日本語（にほんご）", text_sprites);
-        text_generator.generate(0, 52, "KR 한국어", text_sprites);
-        text_generator.generate(0, 72, "♨➑☆★♡✂♪♫", text_sprites);
-
-        while(! bn::keypad::start_pressed())
-        {
-            bn::core::update();
-        }
-    }
-
-    void source_han_sans_text_scene()
-    {
-        bn::sprite_text_generator text_generator(source_han_sans_jp_sprite_font);
-        text_generator.set_center_alignment();
-
-        bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- Source Han Sans | 思源黑体 | 思源黑體 -", text_sprites);
-        text_generator.generate(0, -48, "- 思源黑體 香港 | 源ノ角ゴシック | 본고딕 -", text_sprites);
-        text_generator.generate(0, -28, "SC 简体中文", text_sprites);
-        text_generator.generate(0, -8, "TC  繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, 12, "HC 繁體中文（香港）", text_sprites);
-        text_generator.generate(0, 32, "JP 日本語（にほんご）", text_sprites);
-        text_generator.generate(0, 52, "KR 한국어", text_sprites);
-        text_generator.generate(0, 72, "♨➑☆★♡✂♪♫", text_sprites);
-
-        while(! bn::keypad::start_pressed())
-        {
-            bn::core::update();
-        }
-    }
-
-    void source_han_mono_text_scene()
-    {
-        bn::sprite_text_generator text_generator(source_han_mono_jp_sprite_font);
-        text_generator.set_center_alignment();
-
-        bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- Source Han Mono | 思源等宽 | 思源等寬 -", text_sprites);
-        text_generator.generate(0, -48, "- 思源等寬 香港 | 源ノ等幅 | 본모노 -", text_sprites);
-        text_generator.generate(0, -28, "SC 简体中文", text_sprites);
-        text_generator.generate(0, -8, "TC  繁體中文（台灣）", text_sprites);
-        text_generator.generate(0, 12, "HC 繁體中文（香港）", text_sprites);
-        text_generator.generate(0, 32, "JP 日本語（にほんご）", text_sprites);
-        text_generator.generate(0, 52, "KR 한국어", text_sprites);
-        text_generator.generate(0, 72, "♨➑☆★♡✂♪♫", text_sprites);
-
-        while(! bn::keypad::start_pressed())
-        {
-            bn::core::update();
-        }
-    }
-
-    void wqy_zenhei_text_scene()
-    {
-        bn::sprite_text_generator text_generator(wqy_zenhei_sprite_font);
-        text_generator.set_center_alignment();
-
-        bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- WenQuanYi (Spring of Letters) -", text_sprites);
-        text_generator.generate(0, -48, "- Zen Hei 文泉驿正黑 文泉驛正黑 -", text_sprites);
-        text_generator.generate(0, -28, "简体:义礼说选 繁體:義禮說選", text_sprites);
-        text_generator.generate(0, -8, "日本語（にほんご）한국어", text_sprites);
-        text_generator.generate(0, 12, "扩A:㡛㬐㖧䵍㒰㓀㐁㐂㐃㐄㐅", text_sprites);
-        text_generator.generate(0, 32, "兼容:豈更車賈  增补:乁凵仌㒹", text_sprites);
-        text_generator.generate(0, 52, "♨☆★♡♪♫↑↓←→↖↗↙↘", text_sprites);
-        text_generator.generate(0, 72, "~ 开彼源兮，斯流永继 ~", text_sprites);
-
-        while(! bn::keypad::start_pressed())
-        {
-            bn::core::update();
-        }
-    }
-
-    void wqy_microhei_text_scene()
-    {
-        bn::sprite_text_generator text_generator(wqy_microhei_sprite_font);
-        text_generator.set_center_alignment();
-
-        bn::vector<bn::sprite_ptr, 128>text_sprites;
-        text_generator.generate(0, -68, "- WenQuanYi (Spring of Letters) -", text_sprites);
-        text_generator.generate(0, -48, "- Micro Hei 文泉驿微米黑 文泉驛微米黑 -", text_sprites);
-        text_generator.generate(0, -28, "简体:义礼说选 繁體:義禮說選", text_sprites);
-        text_generator.generate(0, -8, "日本語（にほんご）한국어", text_sprites);
-        text_generator.generate(0, 12, "不支持扩展A区！", text_sprites);
-        text_generator.generate(0, 32, "兼容:豈更車賈  不支持增补！", text_sprites);
-        text_generator.generate(0, 52, "♨☆★♡♪↑↓←→↖↗↙↘", text_sprites);
-        text_generator.generate(0, 72, "~ 开彼源兮，斯流永继 ~", text_sprites);
+        text_generator.generate(0, -68, "다람쥐 헌 쳇바퀴에 타고파", text_sprites);
+        text_generator.generate(0, -48, "닭 콩팥 훔친 집사", text_sprites);
+        text_generator.generate(0, -28, "키스의 고유 조건은 입술끼리 만나야 하고", text_sprites);
+        text_generator.generate(0, -8, "특별한 기술은 필요치 않다.", text_sprites);
+        text_generator.generate(0, 12, "유쾌했던 땃쥐 토끼풀 쫓기 바쁨", text_sprites);
+        text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
+        text_generator.generate(0, 52, "키위를 주게 되었소 내가", text_sprites);
+        text_generator.generate(0, 72, "The quick brown fox jumps over a lazy dog", text_sprites);
 
         while(! bn::keypad::start_pressed())
         {
@@ -221,31 +133,19 @@ int main()
 
     while(true)
     {
-        hanamin_text_scene();
+        galmuri7_text_scene();
+        bn::core::update();
+        
+        galmuri9_text_scene();
         bn::core::update();
 
-        unifont_text_scene();
+        galmuri11_text_scene();
         bn::core::update();
 
-        unscii_text_scene();
+        galmuri11_bold_text_scene();
         bn::core::update();
 
-        babelstone_han_text_scene();
-        bn::core::update();
-
-        source_han_serif_text_scene();
-        bn::core::update();
-
-        source_han_sans_text_scene();
-        bn::core::update();
-
-        source_han_mono_text_scene();
-        bn::core::update();
-
-        wqy_zenhei_text_scene();
-        bn::core::update();
-
-        wqy_microhei_text_scene();
+        galmuri11_condensed_text_scene();
         bn::core::update();
     }
 }
