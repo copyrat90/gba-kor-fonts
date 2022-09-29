@@ -36,7 +36,7 @@ FONTS       :=  ../../fonts/galmuri7 ../../fonts/galmuri9 ../../fonts/galmuri11 
 TEXTS       :=  src/main.cpp
 ROMTITLE    :=  FREE FONT
 ROMCODE     :=  SBTP
-USERFLAGS   :=  
+USERFLAGS   :=  -DBN_CFG_PROFILER_ENABLED=true
 USERLIBDIRS :=  
 USERLIBS    :=  
 USERBUILD   :=  

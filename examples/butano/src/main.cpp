@@ -10,6 +10,7 @@
 #include "bn_bg_palettes.h"
 #include "bn_string_view.h"
 #include "bn_sprite_text_generator.h"
+#include "bn_profiler.h"
 
 #include "galmuri7_sprite_font.h"
 #include "galmuri9_sprite_font.h"
@@ -21,6 +22,7 @@ namespace
 {
     void galmuri7_text_scene()
     {
+        BN_PROFILER_START("galmuri7");
         bn::sprite_text_generator text_generator(galmuri7_sprite_font);
         text_generator.set_center_alignment();
 
@@ -33,6 +35,7 @@ namespace
         text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
         text_generator.generate(0, 52, "키위를 주게 되었소 내가", text_sprites);
         text_generator.generate(0, 72, "The quick brown fox jumps over a lazy dog", text_sprites);
+        BN_PROFILER_STOP();
 
         while(! bn::keypad::start_pressed())
         {
@@ -42,6 +45,7 @@ namespace
 
     void galmuri9_text_scene()
     {
+        BN_PROFILER_START("galmuri9");
         bn::sprite_text_generator text_generator(galmuri9_sprite_font);
         text_generator.set_center_alignment();
 
@@ -54,6 +58,7 @@ namespace
         text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
         text_generator.generate(0, 52, "키위를 주게 되었소 내가", text_sprites);
         text_generator.generate(0, 72, "The quick brown fox jumps over a lazy dog", text_sprites);
+        BN_PROFILER_STOP();
 
         while(! bn::keypad::start_pressed())
         {
@@ -63,6 +68,7 @@ namespace
 
     void galmuri11_text_scene()
     {
+        BN_PROFILER_START("galmuri11");
         bn::sprite_text_generator text_generator(galmuri11_sprite_font);
         text_generator.set_center_alignment();
 
@@ -75,6 +81,7 @@ namespace
         text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
         text_generator.generate(0, 52, "The quick brown fox", text_sprites);
         text_generator.generate(0, 72, "jumps over a lazy dog", text_sprites);
+        BN_PROFILER_STOP();
 
         while(! bn::keypad::start_pressed())
         {
@@ -84,6 +91,7 @@ namespace
 
     void galmuri11_bold_text_scene()
     {
+        BN_PROFILER_START("galmuri11_bold");
         bn::sprite_text_generator text_generator(galmuri11_bold_sprite_font);
         text_generator.set_center_alignment();
 
@@ -96,6 +104,7 @@ namespace
         text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
         text_generator.generate(0, 52, "The quick brown fox", text_sprites);
         text_generator.generate(0, 72, "jumps over a lazy dog", text_sprites);
+        BN_PROFILER_STOP();
 
         while(! bn::keypad::start_pressed())
         {
@@ -105,6 +114,7 @@ namespace
 
     void galmuri11_condensed_text_scene()
     {
+        BN_PROFILER_START("galmuri11_cond");
         bn::sprite_text_generator text_generator(galmuri11_condensed_sprite_font);
         text_generator.set_center_alignment();
 
@@ -117,6 +127,7 @@ namespace
         text_generator.generate(0, 32, "동틀 녘 햇빛 포개짐", text_sprites);
         text_generator.generate(0, 52, "키위를 주게 되었소 내가", text_sprites);
         text_generator.generate(0, 72, "The quick brown fox jumps over a lazy dog", text_sprites);
+        BN_PROFILER_STOP();
 
         while(! bn::keypad::start_pressed())
         {
@@ -147,5 +158,7 @@ int main()
 
         galmuri11_condensed_text_scene();
         bn::core::update();
+
+        bn::profiler::show();
     }
 }
