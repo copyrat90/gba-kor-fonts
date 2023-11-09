@@ -1,15 +1,16 @@
 import os
 from bmtext.meta import parse_line_tokens
 
-fnt_path = "fusion-pixel-font-10.fnt"
+fnt_path = "fusion_pixel_font/fusion_pixel_font_12.fnt"
 
 fnt_file = open(fnt_path, "r")
 txt_file = open(os.path.splitext(fnt_path)[0] + "_width.txt", "w")
 
-for i in range(3):
-    fnt_file.readline()
+line_type = None
+while line_type != "chars":
+    line_type, items = parse_line_tokens(fnt_file.readline())
 
-chars_count = int(parse_line_tokens(fnt_file.readline())[1]["count"])
+chars_count = int(items["count"])
 
 widths = [0] * 65536
 
