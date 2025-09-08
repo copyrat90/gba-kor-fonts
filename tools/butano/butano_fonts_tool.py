@@ -53,7 +53,12 @@ def process_texts_files(texts_file_paths, characters_file_path):
     for texts_file_path in texts_file_paths:
         texts_file_ext = os.path.splitext(texts_file_path.lower())[1]
         if texts_file_ext in ('.c', '.cpp', '.cc', '.cxx', '.c++', '.h', '.hpp', '.hh', '.hxx', '.h++', '.s', '.inc', '.asm'):
-            text = subprocess.check_output([os.environ['DEVKITARM'] + '/bin/arm-none-eabi-cpp', '-fpreprocessed', texts_file_path]).decode('utf-8')
+            if os.environ.get('DEVKITARM'):
+                text = subprocess.check_output([os.environ['DEVKITARM'] + '/bin/arm-none-eabi-cpp', '-fpreprocessed', texts_file_path]).decode('utf-8')
+            elif os.environ.get('WONDERFUL_TOOLCHAIN'):
+                text = subprocess.check_output([os.environ['WONDERFUL_TOOLCHAIN'] + '/toolchain/gcc-arm-none-eabi/bin/arm-none-eabi-cpp', '-fpreprocessed', texts_file_path]).decode('utf-8')
+            else:
+                raise Exception('DEVKITARM and WONDERFUL_TOOLCHAIN not found')
             for char in text:
                 unique_characters.add(char)
             continue
@@ -190,23 +195,27 @@ def process_fonts_files(fonts_file_paths, build_folder_path):
             header_file.write('#include "bn_utf8_characters_map.h"\n')
             header_file.write('#include "bn_sprite_items_' + fonts_file_name_no_ext + '.h"\n')
             header_file.write('\n')
-            header_file.write('constexpr bn::utf8_character ' + font_name + '_utf8_characters[] = {\n')
-            header_file.write('    "' + '", "'.join(font_chars) + '"\n')
-            header_file.write('};\n')
-            header_file.write('\n')
-            header_file.write('constexpr bn::span<const bn::utf8_character> ' + font_name + '_utf8_characters_span(\n')
-            header_file.write('        ' + font_name + '_utf8_characters);\n')
-            header_file.write('\n')
-            header_file.write('constexpr auto ' + font_name + '_utf8_characters_map =\n')
-            header_file.write('        bn::utf8_characters_map<' + font_name + '_utf8_characters_span>();\n')
-            header_file.write('\n')
+            if len(font_chars) > 0:
+                header_file.write('constexpr bn::utf8_character ' + font_name + '_utf8_characters[] = {\n')
+                header_file.write('    "' + '", "'.join(font_chars) + '"\n')
+                header_file.write('};\n')
+                header_file.write('\n')
+                header_file.write('constexpr bn::span<const bn::utf8_character> ' + font_name + '_utf8_characters_span(\n')
+                header_file.write('        ' + font_name + '_utf8_characters);\n')
+                header_file.write('\n')
+                header_file.write('constexpr auto ' + font_name + '_utf8_characters_map =\n')
+                header_file.write('        bn::utf8_characters_map<' + font_name + '_utf8_characters_span>();\n')
+                header_file.write('\n')
             header_file.write('constexpr int8_t ' + font_name + '_character_widths[] = {\n')
             header_file.write('    ' + ', '.join([str(x) for x in font_widths]) + '\n')
             header_file.write('};\n')
             header_file.write('\n')
             header_file.write('constexpr bn::sprite_font ' + font_name + '(\n')
             header_file.write('        bn::sprite_items::' + fonts_file_name_no_ext + ',\n')
-            header_file.write('        ' + font_name + '_utf8_characters_map.reference(),\n')
+            if len(font_chars) > 0:
+                header_file.write('        ' + font_name + '_utf8_characters_map.reference(),\n')
+            else:
+                header_file.write('        bn::utf8_characters_map_ref(),\n')
             header_file.write('        ' + font_name + '_character_widths);\n')
             header_file.write('\n')
             header_file.write('#endif')

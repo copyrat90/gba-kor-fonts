@@ -1,4 +1,7 @@
 # gba-free-fonts
+
+[![Build CI](https://github.com/laqieer/gba-free-fonts/actions/workflows/build.yml/badge.svg)](https://github.com/laqieer/gba-free-fonts/actions/workflows/build.yml)
+
 Free font resources for GBA game development
 
 This repo contains many free-to-use fonts which are ready-to-use in your GBA project.
@@ -54,6 +57,9 @@ TEXTS       :=
 bn::sprite_text_generator text_generator(xxx_sprite_font);
 ```
 
-## [Others](https://github.com/laqieer/gba-free-fonts/blob/main/others.md)
+## Others
 
-*History: it starts [here](https://github.com/GValiente/butano/pull/18).*
+[Free-to-use 1bpp dot matrix fonts](https://github.com/laqieer/gba-free-fonts/blob/main/others.md) 
+
+## History
+This project starts [here](https://github.com/GValiente/butano/pull/18).
